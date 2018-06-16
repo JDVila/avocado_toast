@@ -137,11 +137,11 @@ Then, add a `Toastable()` widget to the `body` parameter of your `Scaffold()` wi
 
 And that's it! The toast should look a little something like this:
 
-![avocado android toast]()
+![avocado android toast](https://github.com/JDVila/avocado_toast/blob/master/readme_images/traditional_toast.png)
 
 And now for something completely meta:
 
-![avocado toast on an avocado toast]()
+![avocado toast on an avocado toast](https://github.com/JDVila/avocado_toast/blob/master/readme_images/avocado_toast_toast.png)
 
 A widget with an image of Avocado Toast inside an  Avocado Toast `Toastable()` widget. You're welcome. 
 
