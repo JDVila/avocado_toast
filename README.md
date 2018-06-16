@@ -20,7 +20,7 @@ Tradition!
 
 ### Why not make a channel, and use Android's native toasts?
 
-That's actually a really good idea. There's nothing wrong with creating a channel, especially when the widget is meant to emulate functionality only found on Android phones. However, I wanted to create something that would have a limited connection to the native later, add nothing to the dex method count, and exist in a single `.dart` file.
+That's actually a really good idea. There's nothing wrong with creating a channel, especially when the widget is meant to emulate functionality only found on Android devices. However, I wanted to create something that would have a limited connection to the native layer, add nothing to the dex method count, and exist in a single `.dart` file.
 
 ### What constructors / methods / constants are in the API?
 
@@ -148,7 +148,7 @@ A widget with an image of Avocado Toast inside an  Avocado Toast `Toastable()` w
 
 ### License
 
-The MIT License. Now go forth and make Toasts like it's 2008.
+The MIT License. Now go forth and make Toasts like it's 2008!
 
 Please see the attached LICENSE file for more information.
 
