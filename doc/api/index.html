@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="made with love by dartdoc 0.19.0">
+  <meta name="description" content="avocado_toast API docs, for the Dart programming language.">
+  <title>avocado_toast - Dart API docs</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">avocado_toast package</li>
+  </ol>
+  <div class="self-name">avocado_toast</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5><span class="package-name">avocado_toast</span> <span class="package-kind">package</span></h5>
+    <ol>
+          <li class="section-title">Libraries</li>
+          <li><a href="avocado_toast/avocado_toast-library.html">avocado_toast</a></li>
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <section class="desc markdown">
+        <h1>avocado_toast</h1>
+<p>A Flutter Plugin for generating custom Android Toasts, completely in Dart code (no channels).</p>
+<h2>Getting Started</h2>
+<h3>Why Avocado Toast?</h3>
+<p>It seemed clever at the time.</p>
+<h3>What is Avocado Toast?</h3>
+<p>Avocado Toast is a Dart plugin for Flutter apps, allowing developers the opportunity to add traditional and custom toasts to their Flutter-made Android apps, using either strings or widgets. Currently, Flutter has not included a traditional toast widget to their material package.</p>
+<h3>Snackbars are Toasts in Material Design, why not just use a material snackbar?</h3>
+<p><img alt="fiddler on the roof - tradition" src="http://www.peacechristianchurch.org/wp-content/uploads/2017/11/Tradition.jpg"></p>
+<p>Tradition!</p>
+<h3>Why not make a channel, and use Android's native toasts?</h3>
+<p>That's actually a really good idea. There's nothing wrong with creating a channel, especially when the widget is meant to emulate functionality only found on Android phones. However, I wanted to create something that would have a limited connection to the native later, add nothing to the dex method count, and exist in a single <code>.dart</code> file.</p>
+<h3>What constructors / methods / constants are in the API?</h3><ul><li>Current features:<ul><li><code>Toastable()</code> Widget (as a <code>body</code> argument for a <code>Scaffold</code> widget), for wrapping Material child widgets, and accepts two arguments:<ul><li><code>toastController</code> parameter (mandatory), which accepts a <code>ToastController</code> instance (see below)</li><li><code>child</code> parameter (mandatory), the child of the <code>Scaffold</code> widget, and the widget upon which one wishes to fire off a Toast</li></ul></li><li><code>ToastController()</code> constructor, which accepts a <code>State</code> argument as a parameter (mandatory)</li><li><code>show()</code> method, to fire off a Toast:<ul><li><code>text</code> parameter, for passing Strings (do not use if you only want to create a custom widget)</li><li><code>widget</code> parameter, for passing Widgets (do not use if you only want to make a classic toast)</li><li><code>toastLength</code> parameter (mandatory), which accepts one of only two constants for duration:<ul><li><code>ToastLength.SHORT</code> - duration of 2.0 seconds</li><li><code>ToastLength.LONG</code> - duration of 3.5 seconds</li></ul></li></ul></li></ul></li><li>Current limitations:<ul><li>Should only be used with Android apps (no alert option for iOS)</li><li>Widget position is anchored close to the bottom of the screen (great for classic toasts, but limits placement of custom widgets, i.e. images, buttons, videos, gifs, etc.)</li><li>Currently queued toasts do not survive moving between routes</li></ul></li><li>Improvements planned for next release:<ul><li>Sustain toasts between state/route changes</li><li>allow more positional composition for custom widgets</li></ul></li></ul>
+<h3>How do I use Avocado Toast?</h3>
+<p>First, incorporate this plugin into your Flutter project, and import the package into your app.</p>
+<p>Next, in your <code>PageState</code> class for whichever page you'd like to have toasts displayed, declare and initialize your <code>ToastController</code> with a <code>State</code> instance by overriding <code>initState()</code>, and clean up resources by overriding <code>dispose()</code>:</p>
+<pre class="language-dart"><code class="language-dart">class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() =&gt; _MyHomePageState();
+}
+
+class _MyHomePageState extends State&lt;MyHomePage&gt; {
+  int _counter = 0;
+  ToastController toastController;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    toastController = ToastController(state: this);
+    }
+
+  @override
+  void dispose() {
+    super.dispose();
+    toastController = null;
+  }
+  ....
+}
+</code></pre>
+<p>Then, add a <code>Toastable()</code> widget to the <code>body</code> parameter of your <code>Scaffold()</code> widget of your overridden <code>build()</code> method, passing in the <code>ToastController</code> to the <code>toastController</code> parameter, and the rest of the layout widgets to the <code>child</code> parmeter:</p>
+<pre class="language-dart"><code class="language-dart">....
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Toastable(
+        toastController: toastController,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: &lt;Widget&gt;[
+              Text(
+                'You have pushed the button this many times:',
+              ),
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.display1,
+              ),
+            ],
+          ),
+        ),
+      ),
+      ....
+</code></pre>
+<p> Finally, call the <code>show()</code> method on your <code>ToastController</code> instance as needed, and pass in your text as a string, and the duration of the toast as either <code>ToastLength.SHORT</code> or <code>ToastLength.LONG</code>:</p>
+<pre class="language-dart"><code class="language-dart">      ....
+      
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _incrementCounter();
+          toastController.show(
+              text: 'Button Clicked this many times: $_counter', 
+              toastLength: ToastLength.LONG);
+        },
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+ ....
+</code></pre>
+<p>And that's it! The toast should look a little something like this:</p>
+<p><img alt="avocado android toast" src=""></p>
+<p>And now for something completely meta:</p>
+<p><img alt="avocado toast on an avocado toast" src=""></p>
+<p>A widget with an image of Avocado Toast inside an  Avocado Toast <code>Toastable()</code> widget. You're welcome. </p>
+<h3>License</h3>
+<p>The MIT License. Now go forth and make Toasts like it's 2008.</p>
+<p>Please see the attached LICENSE file for more information.</p>
+<p><a href="https://www.google.com">Download the Flutter plugin here!</a></p>
+      </section>
+      
+        <section class="summary">
+            <h2>Libraries</h2>
+          <dl>
+            <dt id="avocado_toast">
+              <span class="name"><a href="avocado_toast/avocado_toast-library.html">avocado_toast</a></span>
+            </dt>
+            <dd>
+              
+            </dd>          </dl>
+        </section>
+
+  </div> <!-- /.main-content -->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    avocado_toast 0.0.1
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>
