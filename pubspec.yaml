@@ -1,7 +1,7 @@
 name: avocado_toast
 description: A Flutter Plugin for generating custom Android Toasts, completely in Dart code (no channels).
 version: 0.0.1
-author: Jose Vila
+author: Jose Vila <JDVila@gmail.com>
 homepage: https://github.com/JDVila/avocado_toast
 
 dependencies:
