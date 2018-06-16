@@ -1,4 +1,4 @@
-## [0.0.1] - 06/16/2018
+## [0.1.0] - 06/16/2018
 
 * Initial release. 
 * Current features:
