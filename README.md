@@ -152,4 +152,4 @@ The MIT License. Now go forth and make Toasts like it's 2008!
 
 Please see the attached LICENSE file for more information.
 
-[Download the Flutter plugin here!](https://www.google.com)
+You can find the plugin by searching for `avocado_toast` at https://pub.dartlang.org, or you can [download the Flutter plugin here!](https://github.com/JDVila/avocado_toast)
