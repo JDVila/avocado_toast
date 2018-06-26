@@ -1,3 +1,7 @@
+## [0.2.0] - 06/26/2018
+
+* Moved `RobotoCondensed-Regular.ttf` font to `/lib/fonts` folder for in-app use, to resolve traditional toast font issue
+
 ## [0.1.0] - 06/16/2018
 
 * Initial release. 

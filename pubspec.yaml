@@ -1,6 +1,6 @@
 name: avocado_toast
 description: A Flutter Plugin for generating custom Android Toasts, completely in Dart code (no channels).
-version: 0.1.0
+version: 0.2.0
 author: Jose Vila <JDVila@gmail.com>
 homepage: https://github.com/JDVila/avocado_toast
 
@@ -54,4 +54,5 @@ flutter:
   fonts:
     - family: RobotoCondensed
       fonts:
-        - asset: assets/fonts/RobotoCondensed-Regular.ttf
+        - asset: lib/fonts/RobotoCondensed-Regular.ttf
+

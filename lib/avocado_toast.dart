@@ -94,6 +94,7 @@ class ToastController {
 
   void _checkQueue() {
     if (!isRunning && toastQueue.isNotEmpty) {
+      // ignore: INVALID_USE_OF_PROTECTED_MEMBER
       state.setState(() {
         isRunning = !isRunning;
         currentToast = toastQueue[0][0];
@@ -123,6 +124,7 @@ class ToastController {
   }
 
   void _hide() {
+    // ignore: INVALID_USE_OF_PROTECTED_MEMBER
     state.setState(() {
       isRunning = !isRunning;
       lastToast = currentToast;
