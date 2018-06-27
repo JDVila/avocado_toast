@@ -172,12 +172,11 @@ Then, add a `Toastable()` widget to the `body` parameter of your `Scaffold()` wi
 
 And that's it! The toast should look a little something like this:
 
-<img src="https://github.com/JDVila/avocado_toast/blob/master/readme_images/traditional_toast.png" width="200">
+![traditonal toast](https://github.com/JDVila/avocado_toast/blob/master/readme_images/text_toast.png)
 
 And now for something completely meta:
 
-<img src="https://github.com/JDVila/avocado_toast/blob/master/readme_images/avocado_toast_toast.png" width="200">
-
+![widget toast](https://github.com/JDVila/avocado_toast/blob/master/readme_images/widget_toast.png)
 
 A widget with an image of Avocado Toast inside an  Avocado Toast `Toastable()` widget. You're welcome. 
 
