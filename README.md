@@ -45,7 +45,42 @@ That's actually a really good idea. There's nothing wrong with creating a channe
 
 ### How do I use Avocado Toast?
 
-First, incorporate this plugin into your Flutter project, and import the package into your app.
+First, incorporate this plugin into your Flutter project by adding it as a dependency to your app's `pubspec.yaml` file:
+
+```dart
+name: example
+description: A Flutter app.
+
+dependencies:
+  flutter:
+    sdk: flutter
+    
+  cupertino_icons: ^0.1.2
+
+  avocado_toast: ^0.2.1
+
+...
+```
+
+add the `RobotoCondensed` font to the `pubspec.yaml` as well:
+
+```dart
+flutter:
+
+  uses-material-design: true
+
+  fonts:
+    - family: RobotoCondensed
+      fonts:
+        - asset: packages/avocado_toast/fonts/RobotoCondensed-Regular.ttf
+``` 
+
+and import the package into your app:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:avocado_toast/avocado_toast.dart';
+```
 
 Next, in your `PageState` class for whichever page you'd like to have toasts displayed, declare and initialize your `ToastController` with a `State` instance by overriding `initState()`, and clean up resources by overriding `dispose()`:
 

@@ -1,3 +1,8 @@
+## [0.2.1] - 06/26/2018
+
+* Added `example` project to the `example` folder, demonstrating how to implement `avocado_toast` in a real-world app
+* Updated `README.md` to include instructions related to adding the `RobotoCondensed` font to the app's `pubspec.yaml` file
+
 ## [0.2.0] - 06/26/2018
 
 * Moved `RobotoCondensed-Regular.ttf` font to `/lib/fonts` folder for in-app use, to resolve traditional toast font issue

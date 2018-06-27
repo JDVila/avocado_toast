@@ -66,7 +66,7 @@ class Toastable extends StatelessWidget {
               child: Container(
                 margin: EdgeInsets.only(
                     left: 30.0, right: 30.0, bottom: bottomMargin),
-                child: toastWidget,
+                child: IgnorePointer(child: toastWidget),
               ),
             )
           ],
