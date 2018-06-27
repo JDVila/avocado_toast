@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="made with love by dartdoc 0.19.0">
+  <meta name="generator" content="made with love by dartdoc 0.19.1">
   <meta name="description" content="avocado_toast API docs, for the Dart programming language.">
   <title>avocado_toast - Dart API docs</title>
 
@@ -21,7 +21,7 @@
 
 <header id="title">
   <ol class="breadcrumbs gt-separated dark hidden-xs">
-    <li class="self-crumb">avocado_toast package</li>
+    <li><a href="https://github.com/JDVila/avocado_toast">avocado_toast package</a></li>
   </ol>
   <div class="self-name">avocado_toast</div>
   <form class="search navbar-right" role="search">
@@ -52,10 +52,37 @@
 <p><img alt="fiddler on the roof - tradition" src="http://www.peacechristianchurch.org/wp-content/uploads/2017/11/Tradition.jpg"></p>
 <p>Tradition!</p>
 <h3>Why not make a channel, and use Android's native toasts?</h3>
-<p>That's actually a really good idea. There's nothing wrong with creating a channel, especially when the widget is meant to emulate functionality only found on Android phones. However, I wanted to create something that would have a limited connection to the native later, add nothing to the dex method count, and exist in a single <code>.dart</code> file.</p>
+<p>That's actually a really good idea. There's nothing wrong with creating a channel, especially when the widget is meant to emulate functionality only found on Android devices. However, I wanted to create something that would have a limited connection to the native layer, add nothing to the dex method count, and exist in a single <code>.dart</code> file.</p>
 <h3>What constructors / methods / constants are in the API?</h3><ul><li>Current features:<ul><li><code>Toastable()</code> Widget (as a <code>body</code> argument for a <code>Scaffold</code> widget), for wrapping Material child widgets, and accepts two arguments:<ul><li><code>toastController</code> parameter (mandatory), which accepts a <code>ToastController</code> instance (see below)</li><li><code>child</code> parameter (mandatory), the child of the <code>Scaffold</code> widget, and the widget upon which one wishes to fire off a Toast</li></ul></li><li><code>ToastController()</code> constructor, which accepts a <code>State</code> argument as a parameter (mandatory)</li><li><code>show()</code> method, to fire off a Toast:<ul><li><code>text</code> parameter, for passing Strings (do not use if you only want to create a custom widget)</li><li><code>widget</code> parameter, for passing Widgets (do not use if you only want to make a classic toast)</li><li><code>toastLength</code> parameter (mandatory), which accepts one of only two constants for duration:<ul><li><code>ToastLength.SHORT</code> - duration of 2.0 seconds</li><li><code>ToastLength.LONG</code> - duration of 3.5 seconds</li></ul></li></ul></li></ul></li><li>Current limitations:<ul><li>Should only be used with Android apps (no alert option for iOS)</li><li>Widget position is anchored close to the bottom of the screen (great for classic toasts, but limits placement of custom widgets, i.e. images, buttons, videos, gifs, etc.)</li><li>Currently queued toasts do not survive moving between routes</li></ul></li><li>Improvements planned for next release:<ul><li>Sustain toasts between state/route changes</li><li>allow more positional composition for custom widgets</li></ul></li></ul>
 <h3>How do I use Avocado Toast?</h3>
-<p>First, incorporate this plugin into your Flutter project, and import the package into your app.</p>
+<p>First, incorporate this plugin into your Flutter project by adding it as a dependency to your app's <code>pubspec.yaml</code> file:</p>
+<pre class="language-dart"><code class="language-dart">name: example
+description: A Flutter app.
+
+dependencies:
+  flutter:
+    sdk: flutter
+    
+  cupertino_icons: ^0.1.2
+
+  avocado_toast: ^0.2.1
+
+...
+</code></pre>
+<p>add the <code>RobotoCondensed</code> font to the <code>pubspec.yaml</code> as well:</p>
+<pre class="language-dart"><code class="language-dart">flutter:
+
+  uses-material-design: true
+
+  fonts:
+    - family: RobotoCondensed
+      fonts:
+        - asset: packages/avocado_toast/fonts/RobotoCondensed-Regular.ttf
+</code></pre>
+<p>and import the package into your app:</p>
+<pre class="language-dart"><code class="language-dart">import 'package:flutter/material.dart';
+import 'package:avocado_toast/avocado_toast.dart';
+</code></pre>
 <p>Next, in your <code>PageState</code> class for whichever page you'd like to have toasts displayed, declare and initialize your <code>ToastController</code> with a <code>State</code> instance by overriding <code>initState()</code>, and clean up resources by overriding <code>dispose()</code>:</p>
 <pre class="language-dart"><code class="language-dart">class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -136,14 +163,14 @@ class _MyHomePageState extends State&lt;MyHomePage&gt; {
  ....
 </code></pre>
 <p>And that's it! The toast should look a little something like this:</p>
-<p><img alt="avocado android toast" src=""></p>
+<p><img alt="traditonal toast" src="https://github.com/JDVila/avocado_toast/blob/master/readme_images/text_toast.png"></p>
 <p>And now for something completely meta:</p>
-<p><img alt="avocado toast on an avocado toast" src=""></p>
+<p><img alt="widget toast" src="https://github.com/JDVila/avocado_toast/blob/master/readme_images/widget_toast.png"></p>
 <p>A widget with an image of Avocado Toast inside an  Avocado Toast <code>Toastable()</code> widget. You're welcome. </p>
 <h3>License</h3>
-<p>The MIT License. Now go forth and make Toasts like it's 2008.</p>
+<p>The MIT License. Now go forth and make Toasts like it's 2008!</p>
 <p>Please see the attached LICENSE file for more information.</p>
-<p><a href="https://www.google.com">Download the Flutter plugin here!</a></p>
+<p>You can find the plugin by searching for <code>avocado_toast</code> at <a href="https://pub.dartlang.org">https://pub.dartlang.org</a>, or you can <a href="https://pub.dartlang.org/packages/avocado_toast">download the Flutter plugin here!</a></p>
       </section>
       
         <section class="summary">
@@ -163,7 +190,7 @@ class _MyHomePageState extends State&lt;MyHomePage&gt; {
 
 <footer>
   <span class="no-break">
-    avocado_toast 0.0.1
+    avocado_toast 0.2.1
   </span>
 
 </footer>

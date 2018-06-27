@@ -169,7 +169,7 @@ Widget build(BuildContext context) {
             child: Container(
               margin: EdgeInsets.only(
                   left: 30.0, right: 30.0, bottom: bottomMargin),
-              child: toastWidget,
+              child: IgnorePointer(child: toastWidget),
             ),
           )
         ],
@@ -188,7 +188,7 @@ Widget build(BuildContext context) {
 
 <footer>
   <span class="no-break">
-    avocado_toast 0.0.1
+    avocado_toast 0.2.1
   </span>
 
 </footer>
